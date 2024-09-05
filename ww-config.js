@@ -14,6 +14,14 @@ export default {
       bindable: true,
       defaultValue: "",
     },
+    teleport: {
+      label: {
+        en: "Teleport",
+      },
+      type: "OnOff",
+      bindable: true,
+      defaultValue: false,
+    },
     slot: {
       hidden: true,
       defaultValue: [],
