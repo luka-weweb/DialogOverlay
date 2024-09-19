@@ -1,20 +1,24 @@
 export function setupTeleport() {
   const frontDocument = wwLib.getFrontDocument();
-  if (frontDocument) {
-    const appEl = frontDocument.querySelector("#app");
-    if (appEl) {
-      return {
-        teleportTarget: appEl,
-        isTeleportReady: true,
-      };
-    } else {
-      console.error("Target element '#app' not found in front document");
-    }
-  } else {
-    console.error("Unable to get front document");
+  if (!frontDocument || typeof frontDocument.querySelector !== "function") {
+    console.error("Invalid front document or missing querySelector method");
+    return {
+      teleportTarget: null,
+      isTeleportReady: false,
+    };
   }
+
+  const appEl = frontDocument.querySelector("#app");
+  if (!appEl) {
+    console.error("Target element '#app' not found in front document");
+    return {
+      teleportTarget: null,
+      isTeleportReady: false,
+    };
+  }
+
   return {
-    teleportTarget: null,
-    isTeleportReady: false,
+    teleportTarget: appEl,
+    isTeleportReady: true,
   };
 }
