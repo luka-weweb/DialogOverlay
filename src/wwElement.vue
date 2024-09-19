@@ -35,7 +35,7 @@ export default {
     });
   },
   watch: {
-    "content.teleport"(newValue) {
+    teleport(newValue) {
       if (newValue) {
         this.teleportSettings = setupTeleport();
       }
