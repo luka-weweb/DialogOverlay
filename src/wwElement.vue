@@ -46,24 +46,45 @@ export default {
       }
     },
   },
-  /*
-  computed: {
-    sheetClasses() {
-      return {
-        sheet: this.content.type === "sheet",
-        [`-${this.content.side}`]: ["left", "right", "top", "bottom"].includes(
-          this.content.side
-        ),
-      };
-    },
-  },
-  */
 };
 </script>
 
 <style lang="scss" scoped>
 .modal {
   position: fixed;
+
+  &.-left {
+    left: 0;
+
+    &.-center {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &.-right {
+    right: 0;
+
+    &.-center {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &.-top {
+    top: 0;
+
+    &.-center {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &.-bottom {
+    bottom: 0;
+
+    &.-center {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
 }
 
 .sheet {
