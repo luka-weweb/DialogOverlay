@@ -6,6 +6,7 @@ export default {
     icon: "view-grid",
   },
   properties: {
+    /*
     type: {
       label: {
         en: "Type",
@@ -64,6 +65,8 @@ export default {
       bindable: true,
       defaultValue: false,
     },
+    */
+
     slot: {
       hidden: true,
       defaultValue: [],

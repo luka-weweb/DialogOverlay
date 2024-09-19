@@ -1,9 +1,9 @@
 <template>
   <Teleport
-    :to="this.teleport.teleportTarget"
-    :disabled="!this.content.teleport && !this.teleport.isTeleportReady"
+    :to="this.teleportSettings.teleportTarget"
+    :disabled="!this.teleport && !this.teleportSettings.isTeleportReady"
   >
-    <wwLayout path="slot" v-bind="$attrs" :class="sheetClasses"></wwLayout>
+    <wwLayout path="slot" v-bind="$attrs" :class="styleSettings"></wwLayout>
   </Teleport>
 </template>
 
@@ -16,26 +16,32 @@ export default {
     content: { type: Object, required: true },
     wwFrontState: { type: Object, required: true },
     wwEditorState: { type: Object, required: true },
+    type: { type: String, required: true },
+    styleSettings: { type: Array, required: false },
+    teleport: { type: Boolean, required: true },
+    escapeCloses: { type: Boolean, required: true },
+    open: { type: Boolean, required: true },
   },
   data() {
     return {
-      teleport: { teleportTarget: null, isTeleportReady: false },
+      teleportSettings: { teleportTarget: null, isTeleportReady: false },
     };
   },
   mounted() {
     this.$nextTick(() => {
-      if (this.content.teleport) {
-        this.teleport = setupTeleport();
+      if (this.teleport) {
+        this.teleportSettings = setupTeleport();
       }
     });
   },
   watch: {
     "content.teleport"(newValue) {
       if (newValue) {
-        this.teleport = setupTeleport();
+        this.teleportSettings = setupTeleport();
       }
     },
   },
+  /*
   computed: {
     sheetClasses() {
       return {
@@ -46,6 +52,7 @@ export default {
       };
     },
   },
+  */
 };
 </script>
 
