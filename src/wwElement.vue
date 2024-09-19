@@ -8,7 +8,7 @@
         : this.open
     "
   >
-    <wwLayout path="slot" v-bind="$attrs" :class="styleSettings"></wwLayout>
+    <div v-bind="$attrs"></div>
   </Teleport>
 </template>
 
@@ -21,10 +21,7 @@ export default {
     content: { type: Object, required: true },
     wwFrontState: { type: Object, required: true },
     wwEditorState: { type: Object, required: true },
-    type: { type: String, required: true },
-    styleSettings: { type: Array, required: false },
     teleport: { type: Boolean, required: true },
-    escapeCloses: { type: Boolean, required: true },
     open: { type: Boolean, required: true },
   },
   data() {
@@ -48,60 +45,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.modal {
-  position: fixed;
-
-  &.-side-top {
-    top: 0;
-  }
-
-  &.-side-center {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  &.-side-bottom {
-    bottom: 0;
-  }
-
-  &.-align-left {
-    left: 0;
-  }
-
-  &.-align-center {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  &.-align-right {
-    right: 0;
-  }
-}
-
-.sheet {
-  position: fixed;
-
-  &.-left {
-    top: 0;
-    left: 0;
-    height: 100% !important;
-  }
-  &.-right {
-    top: 0;
-    right: 0;
-    height: 100% !important;
-  }
-  &.-top {
-    top: 0;
-    left: 0;
-    width: 100% !important;
-  }
-  &.-bottom {
-    bottom: 0;
-    left: 0;
-    width: 100% !important;
-  }
-}
-</style>
