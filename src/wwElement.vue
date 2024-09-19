@@ -53,37 +53,30 @@ export default {
 .modal {
   position: fixed;
 
-  &.-left {
-    left: 0;
-
-    &.-center {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
-  &.-right {
-    right: 0;
-
-    &.-center {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
-  &.-top {
+  &.-side-top {
     top: 0;
-
-    &.-center {
-      left: 50%;
-      transform: translateX(-50%);
-    }
   }
-  &.-bottom {
-    bottom: 0;
 
-    &.-center {
-      left: 50%;
-      transform: translateX(-50%);
-    }
+  &.-side-center {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.-side-bottom {
+    bottom: 0;
+  }
+
+  &.-align-left {
+    left: 0;
+  }
+
+  &.-align-center {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.-align-right {
+    right: 0;
   }
 }
 
