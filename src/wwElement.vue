@@ -2,7 +2,7 @@
   <Teleport
     :to="this.teleportSettings.teleportTarget"
     :disabled="!this.teleport"
-    v-if="this.teleport && this.teleportSettings.isTeleportReady"
+    v-if="this.teleport && this.teleportSettings.isTeleportReady && this.open"
   >
     <wwLayout path="slot" v-bind="$attrs" :class="styleSettings"></wwLayout>
   </Teleport>
